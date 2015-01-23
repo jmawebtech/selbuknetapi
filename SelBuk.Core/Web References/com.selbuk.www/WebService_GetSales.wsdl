@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://sbqb.webservice.salescontrol.files.store" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://rpc.xml.coldfusion" xmlns:impl="http://sbqb.webservice.salescontrol.files.store" targetNamespace="http://sbqb.webservice.salescontrol.files.store" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://rpc.xml.coldfusion">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="CFCInvocationException">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetReturnsRequest">
+    <wsdl:part name="startdate" type="xsd:string" />
+    <wsdl:part name="enddate" type="xsd:string" />
+    <wsdl:part name="mytoken" type="xsd:string" />
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="page" type="xsd:double" />
+  </wsdl:message>
+  <wsdl:message name="GetReturnsResponse">
+    <wsdl:part name="GetReturnsReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentsResponse">
+    <wsdl:part name="GetPaymentsReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesResponse">
+    <wsdl:part name="GetSalesReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCancelledOrdersByDateRangeRequest">
+    <wsdl:part name="startdate" type="xsd:string" />
+    <wsdl:part name="enddate" type="xsd:string" />
+    <wsdl:part name="mytoken" type="xsd:string" />
+    <wsdl:part name="page" type="xsd:double" />
+  </wsdl:message>
+  <wsdl:message name="authenticateResponse">
+    <wsdl:part name="authenticateReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPurchasesByDateRangeResponse">
+    <wsdl:part name="GetPurchasesByDateRangeReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="authenticateRequest">
+    <wsdl:part name="strUserName" type="xsd:string" />
+    <wsdl:part name="strPassword" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPurchasesByDateRangeRequest">
+    <wsdl:part name="startdate" type="xsd:string" />
+    <wsdl:part name="enddate" type="xsd:string" />
+    <wsdl:part name="mytoken" type="xsd:string" />
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="page" type="xsd:double" />
+  </wsdl:message>
+  <wsdl:message name="GetCancelledOrdersByDateRangeResponse">
+    <wsdl:part name="GetCancelledOrdersByDateRangeReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesByDateRangeRequest">
+    <wsdl:part name="startdate" type="xsd:string" />
+    <wsdl:part name="enddate" type="xsd:string" />
+    <wsdl:part name="mytoken" type="xsd:string" />
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="page" type="xsd:double" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentsRequest">
+    <wsdl:part name="startdate" type="xsd:string" />
+    <wsdl:part name="enddate" type="xsd:string" />
+    <wsdl:part name="mytoken" type="xsd:string" />
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="page" type="xsd:double" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInventoryRequest">
+    <wsdl:part name="mytoken" type="xsd:string" />
+    <wsdl:part name="sku" type="xsd:string" />
+    <wsdl:part name="quantity" type="xsd:double" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesByDateRangeResponse">
+    <wsdl:part name="GetSalesByDateRangeReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInventoryResponse">
+    <wsdl:part name="UpdateInventoryReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesRequest">
+    <wsdl:part name="mytoken" type="xsd:string" />
+    <wsdl:part name="order" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="CFCInvocationException">
+    <wsdl:part name="fault" type="tns1:CFCInvocationException" />
+  </wsdl:message>
+  <wsdl:portType name="WebService_GetSales">
+    <wsdl:operation name="authenticate" parameterOrder="strUserName strPassword">
+      <wsdl:input name="authenticateRequest" message="impl:authenticateRequest" />
+      <wsdl:output name="authenticateResponse" message="impl:authenticateResponse" />
+      <wsdl:fault name="CFCInvocationException" message="impl:CFCInvocationException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayments" parameterOrder="startdate enddate mytoken status page">
+      <wsdl:input name="GetPaymentsRequest" message="impl:GetPaymentsRequest" />
+      <wsdl:output name="GetPaymentsResponse" message="impl:GetPaymentsResponse" />
+      <wsdl:fault name="CFCInvocationException" message="impl:CFCInvocationException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesByDateRange" parameterOrder="startdate enddate mytoken status page">
+      <wsdl:input name="GetSalesByDateRangeRequest" message="impl:GetSalesByDateRangeRequest" />
+      <wsdl:output name="GetSalesByDateRangeResponse" message="impl:GetSalesByDateRangeResponse" />
+      <wsdl:fault name="CFCInvocationException" message="impl:CFCInvocationException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReturns" parameterOrder="startdate enddate mytoken status page">
+      <wsdl:input name="GetReturnsRequest" message="impl:GetReturnsRequest" />
+      <wsdl:output name="GetReturnsResponse" message="impl:GetReturnsResponse" />
+      <wsdl:fault name="CFCInvocationException" message="impl:CFCInvocationException" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInventory" parameterOrder="mytoken sku quantity">
+      <wsdl:input name="UpdateInventoryRequest" message="impl:UpdateInventoryRequest" />
+      <wsdl:output name="UpdateInventoryResponse" message="impl:UpdateInventoryResponse" />
+      <wsdl:fault name="CFCInvocationException" message="impl:CFCInvocationException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSales" parameterOrder="mytoken order">
+      <wsdl:input name="GetSalesRequest" message="impl:GetSalesRequest" />
+      <wsdl:output name="GetSalesResponse" message="impl:GetSalesResponse" />
+      <wsdl:fault name="CFCInvocationException" message="impl:CFCInvocationException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCancelledOrdersByDateRange" parameterOrder="startdate enddate mytoken page">
+      <wsdl:input name="GetCancelledOrdersByDateRangeRequest" message="impl:GetCancelledOrdersByDateRangeRequest" />
+      <wsdl:output name="GetCancelledOrdersByDateRangeResponse" message="impl:GetCancelledOrdersByDateRangeResponse" />
+      <wsdl:fault name="CFCInvocationException" message="impl:CFCInvocationException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchasesByDateRange" parameterOrder="startdate enddate mytoken status page">
+      <wsdl:input name="GetPurchasesByDateRangeRequest" message="impl:GetPurchasesByDateRangeRequest" />
+      <wsdl:output name="GetPurchasesByDateRangeResponse" message="impl:GetPurchasesByDateRangeResponse" />
+      <wsdl:fault name="CFCInvocationException" message="impl:CFCInvocationException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService_GetSales.cfcSoapBinding" type="impl:WebService_GetSales">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="authenticate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="authenticateRequest">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="authenticateResponse">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="CFCInvocationException">
+        <wsdlsoap:fault use="encoded" name="CFCInvocationException" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayments">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GetPaymentsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GetPaymentsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="CFCInvocationException">
+        <wsdlsoap:fault use="encoded" name="CFCInvocationException" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesByDateRange">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GetSalesByDateRangeRequest">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GetSalesByDateRangeResponse">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="CFCInvocationException">
+        <wsdlsoap:fault use="encoded" name="CFCInvocationException" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetReturns">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GetReturnsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GetReturnsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="CFCInvocationException">
+        <wsdlsoap:fault use="encoded" name="CFCInvocationException" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInventory">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="UpdateInventoryRequest">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="UpdateInventoryResponse">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="CFCInvocationException">
+        <wsdlsoap:fault use="encoded" name="CFCInvocationException" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSales">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GetSalesRequest">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GetSalesResponse">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="CFCInvocationException">
+        <wsdlsoap:fault use="encoded" name="CFCInvocationException" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCancelledOrdersByDateRange">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GetCancelledOrdersByDateRangeRequest">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GetCancelledOrdersByDateRangeResponse">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="CFCInvocationException">
+        <wsdlsoap:fault use="encoded" name="CFCInvocationException" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchasesByDateRange">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="GetPurchasesByDateRangeRequest">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="GetPurchasesByDateRangeResponse">
+        <wsdlsoap:body use="encoded" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="CFCInvocationException">
+        <wsdlsoap:fault use="encoded" name="CFCInvocationException" namespace="http://sbqb.webservice.salescontrol.files.store" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService_GetSalesService">
+    <wsdl:port name="WebService_GetSales.cfc" binding="impl:WebService_GetSales.cfcSoapBinding">
+      <wsdlsoap:address location="http://www.selbuk.com/store/files/salescontrol/webservice/SBQB/WebService_GetSales.cfc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

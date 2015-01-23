@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SelBuk.Core.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SelBuk_Core_com_selbuk_www_WebService_GetSalesService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.selbuk.com/store/files/salescontrol/webservice/SBQB/WebService_GetSales.cfc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
